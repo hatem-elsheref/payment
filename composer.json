@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Hatem\\Payment\\": "src/"
+    },
+    "files": ["src/helper.php"]
+  }
+}
