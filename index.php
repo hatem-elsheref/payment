@@ -37,6 +37,7 @@ $myfatoorah = new MyFatoorah($api_key);
 
 $data = [
   "CustomerName"        => "Hatem Elsheref",
+  "UserDefinedField"    => "CK-12345",
   "NotificationOption"  => "LNK",
   "DisplayCurrencyIso"  => "EGP",
   "MobileCountryCode"   => "+20",
@@ -49,3 +50,5 @@ $data = [
 ];
 
 $url = $myfatoorah->sendPayment($data)['Data']['InvoiceURL'];
+
+header('Location: ' . $url);

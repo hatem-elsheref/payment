@@ -28,6 +28,23 @@ class MyFatoorah extends PaymentGateway
             // start shipping the order or make any thing depending on your business model
         }
     }
+    // generate session id available for one time usage to embed card element in your html
+    public function initiateSession($data)
+    {
+        return $this->send('v2/InitiateSession', $data);
+    }
+
+    // return all available payment methods with all configurations in your account
+    public function initiatePayment($data)
+    {
+        return $this->send('v2/InitiatePayment', $data);
+    }
+
+    // take payment method id and return back a url to complete the payment or take session id to complete
+    public function executePayment($data)
+    {
+        return $this->send('v2/ExecutePayment', $data);
+    }
 
     private function send($url, $body = [], $headers = [], $is_post_method = true){
         $url = self::BASE_URL . '/' . $url;
